@@ -1,10 +1,4 @@
-.card-section {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.card {
+/* .card {
   width: 15%;
   height: 130px;
   background: #000;
@@ -14,4 +8,4 @@
 .card.active {
   width: 20%;
   height: 190px;
-}
+} */
