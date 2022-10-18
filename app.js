@@ -1,7 +1,58 @@
+// Arr of all cards
 const cards = document.querySelectorAll(".card");
-let indexRight = -1;
-let indexLeft = cards.length;
 
+// On default set first element active
+cards[0].classList.add("active");
+
+// Current step
+let step = 0;
+
+// Event listener for keyboard
+window.addEventListener(
+  "keydown",
+  (event) => {
+    // If arrow right clicked
+    if (event.key === "ArrowRight") {
+      // Remove class active if it exists
+      if (document.querySelector(".active") !== null) {
+        document.querySelector(".active").classList.remove("active");
+      }
+
+      // Increase step by 1
+      step++;
+
+      // If it comes to the end, set step equal 0
+      if (step === cards.length) {
+        step = 0;
+      }
+
+      // Add class active to the element
+      cards[step].classList.add("active");
+    }
+
+    // If arrow left clicked
+    else if (event.key === "ArrowLeft") {
+      // Remove class active if it exists
+      if (document.querySelector(".active") !== null) {
+        document.querySelector(".active").classList.remove("active");
+      }
+
+      // Decrease step by 1
+      step--;
+
+      // If it comes to the end, set step equal array lenght
+      if (step === -1) {
+        step = cards.length - 1;
+      }
+
+      // Add class active to the element
+      cards[step].classList.add("active");
+    }
+  },
+  true
+);
+
+// On click
 // for (const card of cards) {
 //   card.addEventListener("click", (e) => {
 //     if (document.querySelector(".active") !== null) {
@@ -11,37 +62,3 @@ let indexLeft = cards.length;
 //     console.log(e.key);
 //   });
 // }
-
-window.addEventListener(
-  "keydown",
-  (event) => {
-    if (event.key === "ArrowRight") {
-      if (document.querySelector(".active") !== null) {
-        document.querySelector(".active").classList.remove("active");
-      }
-      indexRight++;
-
-      if (indexRight === cards.length) {
-        indexRight = 0;
-      }
-
-      cards[indexRight].classList.add("active");
-    } else if (event.key === "ArrowLeft") {
-      if (document.querySelector(".active") !== null) {
-        document.querySelector(".active").classList.remove("active");
-      }
-      indexLeft--;
-
-      if (indexLeft === -1) {
-        indexLeft = cards.length - 1;
-      }
-      console.log(indexLeft);
-      cards[indexLeft].classList.add("active");
-    }
-  },
-  true
-);
-//! Mana ovakvog pristupa je da on ne yna na kojoj je kartici trenutno jer npr ide desno desno i onda kada se pritisne levo vrati se na kraj jer od kraja krece mora da se razradi da bi on mogao da ide levo desno
-//Todo: Potrebno je da pamti na kojoj je trenutno kartici tako da se napravi i preko toga lefo je minus 1 a desno je plus jedan
-//Todo: To ce se saznati da li ima aktivnu klasu ako ima onda se brise
-// id mora da se gadja sa korakom u kome se nalazi
