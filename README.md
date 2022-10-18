@@ -1,3 +1,3 @@
-# tv-project-2
+menu-smart-tv-component
 
-Prepare for smart tv app development
+Learning to create smart tv apps in vanilla js and react
