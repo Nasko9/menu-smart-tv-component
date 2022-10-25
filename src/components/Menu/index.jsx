@@ -36,7 +36,11 @@ export default function Menu({ data, focusKey: focusKeyParam }) {
 
   return (
     <FocusContext.Provider value={focusKey}>
-      <div className="menu" ref={ref} hasFocusedChild={hasFocusedChild}>
+      <div
+        className="menu"
+        ref={ref}
+        hasfocusedchild={hasFocusedChild.toString()}
+      >
         {data.map((singleData) => (
           <MenuItem key={singleData.id} {...singleData} />
         ))}

@@ -8,7 +8,11 @@ export default function MenuItem({ title }) {
   const { ref, focused } = useFocusable();
 
   return (
-    <div className={focused ? "active" : "item"} ref={ref} focused={focused}>
+    <div
+      className={focused ? "active" : "item"}
+      ref={ref}
+      focused={focused.toString()}
+    >
       {title}
     </div>
   );
